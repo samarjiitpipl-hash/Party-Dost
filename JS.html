@@ -1,0 +1,538 @@
+=======Js======
+console.log("Party Dost Website Loaded Successfully");
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking a link (mobile)
+document.querySelectorAll('nav a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        nav.classList.remove('active');
+    });
+});
+
+// Active link highlighting
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', function() {
+    let current = '';
+    sections.forEach(function(section) {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('nav a').forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ====== THEME GALLERY GRID ======
+
+// Theme data with all your image links and detailed descriptions
+const themes = [
+    {
+        name: "🦄 Unicorn Theme",
+        description: "Step into a magical world of rainbows, unicorns, and sparkles! This enchanting theme brings fairy tales to life with colorful decorations, mythical creatures, and dreamy aesthetics. Perfect for birthday parties, baby showers, and any celebration that needs a touch of magic.",
+        images: [
+            "https://i.ibb.co/Hfmw6S3k/unicorn1.jpg",
+            "https://i.ibb.co/CKrMB3bk/unicorn2.jpg",
+            "https://i.ibb.co/YT09qCw1/unicorn3.jpg"
+        ],
+        tag: "Popular",
+        features: [
+            { icon: "🌈", text: "Rainbow Decorations" },
+            { icon: "🦄", text: "Unicorn Centerpieces" },
+            { icon: "✨", text: "Sparkle Effects" },
+            { icon: "🎈", text: "Balloon Garlands" }
+        ],
+        idealFor: "Birthday Parties, Baby Showers, Kids Events"
+    },
+    {
+        name: "🦇 Batman Theme",
+        description: "Gotham City comes to life with our Batman theme! Dark, bold, and action-packed, this theme is perfect for superhero fans and adventure seekers. Featuring bat symbols, city skyline silhouettes, and dramatic lighting that creates an atmosphere of mystery and heroism.",
+        images: [
+            "https://i.ibb.co/cccLbM7C/batman1.jpg",
+            "https://i.ibb.co/Rkn6rZL5/batman2.jpg",
+            "https://i.ibb.co/LD1p7pPB/batman3.jpg"
+        ],
+        tag: "Trending",
+        features: [
+            { icon: "🦇", text: "Bat Symbol Decor" },
+            { icon: "🌃", text: "Gotham City Backdrop" },
+            { icon: "💡", text: "Dramatic Lighting" },
+            { icon: "🎭", text: "Superhero Props" }
+        ],
+        idealFor: "Kids Parties, Themed Events, Movie Nights"
+    },
+    {
+        name: "🚗 Boot Car Theme",
+        description: "Vintage elegance meets modern style with our Boot Car theme. Inspired by classic automobiles and retro charm, this theme features antique car decorations, checkered flags, and nostalgic elements that transport you to a bygone era of style and sophistication.",
+        images: [
+            "https://i.ibb.co/0RkXYtNG/bootcar1.jpg",
+            "https://i.ibb.co/x8BdnHFJ/bootcar2.jpg",
+            "https://i.ibb.co/8DCPzWbV/bootcar3.jpg"
+        ],
+        tag: "New",
+        features: [
+            { icon: "🚗", text: "Vintage Car Decor" },
+            { icon: "🏁", text: "Checkered Flags" },
+            { icon: "⚙️", text: "Retro Elements" },
+            { icon: "🛞", text: "Custom Props" }
+        ],
+        idealFor: "Birthday Parties, Themed Events, Car Enthusiasts"
+    },
+    {
+        name: "🦋 Butterfly Theme",
+        description: "Transform your celebration into a beautiful garden paradise with our Butterfly theme. Featuring delicate butterflies, vibrant flowers, and soft pastel colors, this theme creates an atmosphere of natural beauty and elegance that's perfect for spring celebrations and garden parties.",
+        images: [
+            "https://i.ibb.co/whfBKtmq/butterfly1.jpg",
+            "https://i.ibb.co/8nxrkhxQ/butterfly2.jpg",
+            "https://i.ibb.co/YBCRc8CZ/butterfly3.jpg"
+        ],
+        tag: "Elegant",
+        features: [
+            { icon: "🦋", text: "Butterfly Decorations" },
+            { icon: "🌸", text: "Floral Arrangements" },
+            { icon: "🌿", text: "Garden Elements" },
+            { icon: "✨", text: "Soft Pastel Colors" }
+        ],
+        idealFor: "Weddings, Baby Showers, Garden Parties"
+    },
+    {
+        name: "❄️ Frozen Theme",
+        description: "Let it go with our magical Frozen theme! Inspired by the beloved winter wonderland, this theme features ice crystals, snowflakes, and cool blue tones that create a mystical atmosphere. Perfect for winter celebrations and fans of the enchanting world of Arendelle.",
+        images: [
+            "https://i.ibb.co/hxKxT6d6/frozen1.jpg",
+            "https://i.ibb.co/JRch0zhc/frozen2.jpg",
+            "https://i.ibb.co/0yV2fHg1/frozen3.jpg"
+        ],
+        tag: "Magical",
+        features: [
+            { icon: "❄️", text: "Ice Crystal Decor" },
+            { icon: "🌟", text: "Sparkle Effects" },
+            { icon: "🏰", text: "Winter Wonderland" },
+            { icon: "💎", text: "Crystal Centerpieces" }
+        ],
+        idealFor: "Birthday Parties, Winter Events, Kids Celebrations"
+    },
+    {
+        name: "⚡ Harry Potter Theme",
+        description: "Welcome to the wizarding world! Our Harry Potter theme brings Hogwarts to life with magical decorations, house colors, and enchanting elements. From floating candles to potion bottles, every detail creates an immersive experience for witches, wizards, and muggles alike.",
+        images: [
+            "https://i.ibb.co/bMKqVgyf/harrypotter1.jpg",
+            "https://i.ibb.co/jvRV7DDJ/harrypotter2.jpg",
+            "https://i.ibb.co/FkC2fNNg/harrypotter3.jpg"
+        ],
+        tag: "Fantasy",
+        features: [
+            { icon: "⚡", text: "Magical Decor" },
+            { icon: "🧙", text: "Wizard Props" },
+            { icon: "🏰", text: "Hogwarts Elements" },
+            { icon: "📜", text: "Custom Invitations" }
+        ],
+        idealFor: "Birthday Parties, Movie Nights, Themed Events"
+    },
+    {
+        name: "🌿 Jungle Theme",
+        description: "Embark on a wild safari adventure with our Jungle theme! Featuring lush greenery, exotic animals, and tropical vibes, this theme brings the excitement of the wild to your celebration. Perfect for nature lovers and adventurous souls seeking a unique party experience.",
+        images: [
+            "https://i.ibb.co/20MsgZdr/jungle1.jpg",
+            "https://i.ibb.co/6CcKN7F/jungle2.jpg",
+            "https://i.ibb.co/tw2jGMPq/jungle3.jpg"
+        ],
+        tag: "Adventure",
+        features: [
+            { icon: "🌴", text: "Tropical Decor" },
+            { icon: "🦁", text: "Animal Props" },
+            { icon: "🌿", text: "Green Elements" },
+            { icon: "🎪", text: "Safari Vibes" }
+        ],
+        idealFor: "Kids Parties, Outdoor Events, Adventure Lovers"
+    },
+    {
+        name: "⚽ Messi Theme",
+        description: "Celebrate like a champion with our Messi theme! Inspired by the greatest footballer of all time, this theme features football decorations, team colors, and sports elements that create an exciting atmosphere for fans and players alike. Score big with this action-packed theme!",
+        images: [
+            "https://i.ibb.co/T6QBcXR/messi1.jpg",
+            "https://i.ibb.co/bMJ2pn7n/messi2.jpg",
+            "https://i.ibb.co/bMQGJgvy/messi3.jpg"
+        ],
+        tag: "Sports",
+        features: [
+            { icon: "⚽", text: "Football Decor" },
+            { icon: "🏆", text: "Trophy Elements" },
+            { icon: "👕", text: "Jersey Props" },
+            { icon: "🎯", text: "Goal Post Decor" }
+        ],
+        idealFor: "Sports Parties, Kids Celebrations, Football Fans"
+    },
+    {
+        name: "👑 Princess Theme",
+        description: "Every little girl deserves to feel like royalty! Our Princess theme creates a fairy tale atmosphere with crowns, tiaras, and elegant decorations fit for a queen. Transform your venue into a royal palace where dreams come true and every moment is magical.",
+        images: [
+            "https://i.ibb.co/fGxfGy2Z/princess1.jpg",
+            "https://i.ibb.co/ymcjbNsc/princess2.jpg",
+            "https://i.ibb.co/YT3nLqxk/princess3.jpg",
+            "https://i.ibb.co/DDzB12kM/princess4.jpg"
+        ],
+        tag: "Royal",
+        features: [
+            { icon: "👑", text: "Crown Decorations" },
+            { icon: "🏰", text: "Castle Elements" },
+            { icon: "💎", text: "Jewel Centerpieces" },
+            { icon: "✨", text: "Fairy Tale Lighting" }
+        ],
+        idealFor: "Birthday Parties, Weddings, Special Occasions"
+    },
+    {
+        name: "🏰 Cinderella Theme",
+        description: "Experience the magic of Cinderella's fairy tale! Our Cinderella theme features glass slippers, royal balls, and fairy godmother magic. With elegant decorations and enchanting elements, this theme creates a truly unforgettable celebration fit for any princess.",
+        images: [
+            "https://i.ibb.co/3yCKxnqM/cinderella1.jpg",
+            "https://i.ibb.co/HDcmSXVS/cinderella2.jpg",
+            "https://i.ibb.co/9kng6xvK/cinderella3.jpg"
+        ],
+        tag: "Fairy Tale",
+        features: [
+            { icon: "👠", text: "Glass Slipper Decor" },
+            { icon: "🎠", text: "Royal Ball Elements" },
+            { icon: "✨", text: "Fairy Godmother Magic" },
+            { icon: "🏰", text: "Castle Backdrops" }
+        ],
+        idealFor: "Birthday Parties, Weddings, Fairy Tale Events"
+    },
+    {
+        name: "🏎️ Car Racing Theme",
+        description: "Start your engines with our high-speed Car Racing theme! Featuring checkered flags, racing stripes, and speed elements, this theme brings the excitement of the racetrack to your celebration. Perfect for adrenaline junkies and speed enthusiasts of all ages.",
+        images: [
+            "https://i.ibb.co/8LDws7tf/racing1.jpg",
+            "https://i.ibb.co/Qx7bgwz/racing2.jpg",
+            "https://i.ibb.co/G3VZWHC8/racing3.jpg"
+        ],
+        tag: "Racing",
+        features: [
+            { icon: "🏁", text: "Checkered Flags" },
+            { icon: "🏎️", text: "Car Props" },
+            { icon: "⚡", text: "Speed Elements" },
+            { icon: "🎯", text: "Racing Decor" }
+        ],
+        idealFor: "Kids Parties, Sports Events, Car Enthusiasts"
+    },
+    {
+        name: "🔬 Science Theme",
+        description: "Get ready for some mad science fun! Our Science theme features experiments, lab coats, and educational elements that make learning exciting. From bubbling beakers to molecule decorations, this theme creates a fascinating atmosphere for curious minds.",
+        images: [
+            "https://i.ibb.co/qMwRYzYJ/science1.jpg",
+            "https://i.ibb.co/1J8hTHjD/science2.jpg",
+            "https://i.ibb.co/v6fm0yRC/science3.jpg",
+            "https://i.ibb.co/cKMJ2FSf/science4.jpg"
+        ],
+        tag: "Educational",
+        features: [
+            { icon: "🧪", text: "Science Props" },
+            { icon: "🔬", text: "Experiment Elements" },
+            { icon: "🧠", text: "Educational Decor" },
+            { icon: "💡", text: "Interactive Activities" }
+        ],
+        idealFor: "School Events, Educational Parties, Science Lovers"
+    },
+    {
+        name: "🕷️ Spiderman Theme",
+        description: "With great power comes great party! Our Spiderman theme features webs, cityscapes, and superhero action that brings everyone's favorite wall-crawler to life. Perfect for young heroes and fans of the amazing Spiderman universe.",
+        images: [
+            "https://i.ibb.co/JWF7QLvv/spiderman1.jpg",
+            "https://i.ibb.co/84zYbgQy/spiderman2.jpg",
+            "https://i.ibb.co/Dfxvx7K3/spiderman3.jpg"
+        ],
+        tag: "Superhero",
+        features: [
+            { icon: "🕷️", text: "Web Decorations" },
+            { icon: "🏙️", text: "Cityscape Elements" },
+            { icon: "🦸", text: "Superhero Props" },
+            { icon: "🎭", text: "Mask & Costume Accessories" }
+        ],
+        idealFor: "Birthday Parties, Kids Events, Movie Fans"
+    },
+    {
+        name: "🦸 Super Hero Theme",
+        description: "Unleash your inner hero with our Super Hero theme! Featuring capes, masks, and action-packed decorations, this theme empowers heroes of all ages. Create an atmosphere of courage, strength, and adventure at your next celebration.",
+        images: [
+            "https://i.ibb.co/NntWXdb1/superhero1.jpg",
+            "https://i.ibb.co/NnJs4NnY/superhero2.jpg",
+            "https://i.ibb.co/MDGJbtSt/superhero3.jpg"
+        ],
+        tag: "Action",
+        features: [
+            { icon: "🦸", text: "Superhero Decor" },
+            { icon: "🎭", text: "Mask & Cape Props" },
+            { icon: "💪", text: "Power Elements" },
+            { icon: "⭐", text: "Star Embellishments" }
+        ],
+        idealFor: "Kids Parties, Themed Events, Movie Fans"
+    },
+    {
+        name: "👶 Boss Baby Theme",
+        description: "The cutest boss in town! Our Boss Baby theme features adorable decorations, business elements, and fun props that celebrate the little boss in your life. Perfect for baby showers, first birthdays, and celebrations for the newest member of the family.",
+        images: [
+            "https://i.ibb.co/jPC6p2HD/bossbaby1.jpg",
+            "https://i.ibb.co/nqHx7pjB/bossbaby2.jpg",
+            "https://i.ibb.co/0j5V7Z8q/bossbaby3.jpg"
+        ],
+        tag: "Cute",
+        features: [
+            { icon: "👶", text: "Baby Decor" },
+            { icon: "💼", text: "Business Elements" },
+            { icon: "🎀", text: "Cute Accessories" },
+            { icon: "⭐", text: "Baby Milestone Props" }
+        ],
+        idealFor: "Baby Showers, First Birthdays, New Baby Celebrations"
+    }
+];
+
+// Build theme cards in grid
+function buildThemeGrid() {
+    var themeGrid = document.getElementById('themeGrid');
+    if (!themeGrid) return;
+
+    // Clear existing content
+    themeGrid.innerHTML = '';
+
+    for (var i = 0; i < themes.length; i++) {
+        var theme = themes[i];
+        
+        // Create theme card
+        var card = document.createElement('div');
+        card.className = 'theme-card';
+
+        // Image section
+        var imageSection = document.createElement('div');
+        imageSection.className = 'theme-card-image';
+
+        // Show up to 3 images
+        var imagesToShow = theme.images.slice(0, 3);
+        for (var j = 0; j < imagesToShow.length; j++) {
+            var img = document.createElement('img');
+            img.src = imagesToShow[j];
+            img.alt = theme.name;
+            img.loading = 'lazy';
+            imageSection.appendChild(img);
+        }
+
+        // If more than 3 images, show count
+        if (theme.images.length > 3) {
+            var moreDiv = document.createElement('div');
+            moreDiv.className = 'more-images';
+            moreDiv.textContent = '+' + (theme.images.length - 3);
+            imageSection.appendChild(moreDiv);
+        }
+
+        card.appendChild(imageSection);
+
+        // Content section
+        var content = document.createElement('div');
+        content.className = 'theme-card-content';
+
+        var title = document.createElement('h3');
+        title.textContent = theme.name;
+        content.appendChild(title);
+
+        var desc = document.createElement('p');
+        desc.textContent = theme.description.substring(0, 80) + '...';
+        content.appendChild(desc);
+
+        var tag = document.createElement('span');
+        tag.className = 'theme-tag ' + theme.tag.toLowerCase();
+        tag.textContent = theme.tag;
+        content.appendChild(tag);
+
+        // View button
+        var btn = document.createElement('button');
+        btn.className = 'theme-btn';
+        btn.textContent = 'View Details →';
+        btn.setAttribute('onclick', 'openThemeModal(' + i + ')');
+        content.appendChild(btn);
+
+        card.appendChild(content);
+        themeGrid.appendChild(card);
+    }
+}
+
+// ====== THEME MODAL FUNCTIONS ======
+
+function openThemeModal(index) {
+    var theme = themes[index];
+    if (!theme) return;
+
+    var modal = document.getElementById('themeModal');
+    var modalBody = document.getElementById('themeModalBody');
+
+    // Get tag color
+    var tagColor = getTagColor(theme.tag);
+
+    // Build modal content
+    var imagesHTML = '';
+    for (var i = 0; i < theme.images.length; i++) {
+        imagesHTML += '<img src="' + theme.images[i] + '" alt="' + theme.name + '" loading="lazy">';
+    }
+
+    var featuresHTML = '';
+    for (var j = 0; j < theme.features.length; j++) {
+        featuresHTML += '<div class="theme-modal-feature">' +
+            '<span class="feature-icon">' + theme.features[j].icon + '</span>' +
+            '<div class="feature-text"><strong>' + theme.features[j].text + '</strong></div>' +
+        '</div>';
+    }
+
+    modalBody.innerHTML = 
+        '<!-- Header -->' +
+        '<div class="theme-modal-header">' +
+            '<h2>' + theme.name + '</h2>' +
+            '<span class="theme-modal-tag" style="background: ' + tagColor + '">' + theme.tag + '</span>' +
+        '</div>' +
+
+        '<!-- Image Gallery -->' +
+        '<div class="theme-modal-gallery">' +
+            imagesHTML +
+        '</div>' +
+
+        '<!-- Description -->' +
+        '<div class="theme-modal-description">' +
+            '<h3>📖 About This Theme</h3>' +
+            '<p>' + theme.description + '</p>' +
+        '</div>' +
+
+        '<!-- Features -->' +
+        '<div class="theme-modal-features">' +
+            featuresHTML +
+        '</div>' +
+
+        '<!-- Ideal For -->' +
+        '<div style="background: #f8f9fa; padding: 15px 20px; border-radius: 12px; margin-bottom: 25px;">' +
+            '<strong style="color: #1a1a1a;">🎯 Ideal For:</strong>' +
+            '<span style="color: #555; margin-left: 10px;">' + theme.idealFor + '</span>' +
+        '</div>' +
+
+        '<!-- Book Button -->' +
+        '<div class="theme-modal-book">' +
+            '<button class="book-btn" onclick="bookTheme(\'' + theme.name + '\')">' +
+                '🎉 Book This Theme' +
+            '</button>' +
+        '</div>';
+
+    // Show modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeThemeModal() {
+    var modal = document.getElementById('themeModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function getTagColor(tag) {
+    var colors = {
+        'Popular': '#ff6b6b',
+        'Trending': '#ffd93d',
+        'New': '#6bcb77',
+        'Elegant': '#a66cff',
+        'Magical': '#ff8a5c',
+        'Fantasy': '#4dabf7',
+        'Adventure': '#ff6b35',
+        'Sports': '#20c997',
+        'Royal': '#cc9c3e',
+        'Fairy Tale': '#cc5de8',
+        'Racing': '#e03131',
+        'Educational': '#339af0',
+        'Superhero': '#e0316b',
+        'Action': '#c92a2a',
+        'Cute': '#ff6b9d'
+    };
+    return colors[tag] || '#c9a84c';
+}
+
+function bookTheme(themeName) {
+    closeThemeModal();
+    // Scroll to contact section
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    // Show alert after scroll
+    setTimeout(function() {
+        alert('🎉 Great choice! You\'re interested in the ' + themeName + '.\n\nFill out the contact form below and we\'ll get back to you within 24 hours with custom pricing and details!');
+    }, 800);
+}
+
+// Close modal on outside click
+document.addEventListener('click', function(event) {
+    var modal = document.getElementById('themeModal');
+    var modalContent = document.querySelector('.theme-modal-content');
+    if (modal && modal.style.display === 'flex' && !modalContent.contains(event.target)) {
+        closeThemeModal();
+    }
+});
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeThemeModal();
+    }
+});
+
+// Initialize theme grid when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildThemeGrid);
+} else {
+    buildThemeGrid();
+}
+
+// Counter Animation
+var counterNumbers = document.querySelectorAll('.counter-number');
+
+function animateCounters() {
+    for (var i = 0; i < counterNumbers.length; i++) {
+        var counter = counterNumbers[i];
+        var target = parseInt(counter.getAttribute('data-target'));
+        var duration = 2000;
+        var step = Math.max(1, Math.floor(target / 50));
+        var current = 0;
+
+        (function(counter, target, step) {
+            function updateCounter() {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target + '+';
+                    return;
+                }
+                counter.textContent = current;
+                setTimeout(updateCounter, 30);
+            }
+            updateCounter();
+        })(counter, target, step);
+    }
+}
+
+// Trigger counter animation when in view
+var counterSection = document.querySelector('.counters');
+if (counterSection) {
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                animateCounters();
+                observer.disconnect();
+                break;
+            }
+        }
+    });
+    observer.observe(counterSection);
+}
+
+console.log("Party Dost Theme Grid & Modal Loaded Successfully!");

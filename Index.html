@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Dost | Premium Event Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <span class="logo-party">Party</span>
+            <span class="logo-dost">Dost</span>
+        </div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#themes">Themes</a>
+            <a href="#packages">Packages</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">✨ Premier Event Management</span>
+            <h1>
+                <span class="hero-party">Party</span>
+                <span class="hero-dost">Dost</span>
+            </h1>
+            <p>Creating unforgettable experiences for weddings, birthdays, corporate events, and more.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('themes').scrollIntoView({behavior:'smooth'})">Explore Themes</button>
+                <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+            </div>
+        </div>
+        <div class="hero-floating-shapes">
+            <span class="shape shape-1">✦</span>
+            <span class="shape shape-2">◆</span>
+            <span class="shape shape-3">●</span>
+            <span class="shape shape-4">▲</span>
+        </div>
+    </section>
+
+    <!-- ====== COUNTERS SECTION ====== -->
+    <section class="counters">
+        <div class="container">
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-target="500">0</div>
+                    <p>Events Completed</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="50">0</div>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="10">0</div>
+                    <p>Awards Won</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-target="100">0</div>
+                    <p>Team Members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== THEME GALLERY ====== -->
+    <section class="theme-gallery" id="themes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎨 Explore Our Themes</span>
+                <h2>Choose Your Perfect Theme</h2>
+                <p>Browse through our vibrant collection of party themes and find the perfect one for your celebration</p>
+            </div>
+
+            <div class="theme-grid" id="themeGrid">
+                <!-- Themes will be dynamically inserted by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== THEME DETAIL MODAL ====== -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <span class="theme-modal-close" onclick="closeThemeModal()">&times;</span>
+            <div class="theme-modal-body" id="themeModalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== SERVICES SECTION ====== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎯 What We Offer</span>
+                <h2>Our Premium Services</h2>
+                <p>Creating unforgettable moments with our expert event planning and decoration services</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎂</div>
+                    <h3>Birthday Parties</h3>
+                    <p>Memorable themes for all ages. From first birthday to golden jubilee, we make every year special.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3>Weddings</h3>
+                    <p>Exquisite decor and planning. Make your dream wedding a reality with our expert team.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h3>Annaprasan</h3>
+                    <p>Traditional and elegant setups. Celebrate your baby's first rice ceremony with style.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Events</h3>
+                    <p>Professional events and meetings. Impress your clients and team with flawless execution.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍼</div>
+                    <h3>Baby Showers</h3>
+                    <p>Beautiful celebrations for the arrival of your little one. Custom themes and decorations.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎈</div>
+                    <h3>Decorations</h3>
+                    <p>Stunning decor for any occasion. Balloons, flowers, lighting, and more to create magic.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SAVE YOUR SPOT SECTION ====== -->
+    <section class="save-spot">
+        <div class="container">
+            <div class="save-spot-wrapper">
+                <div class="save-spot-content">
+                    <span class="save-spot-badge">🔥 Limited Seats Available</span>
+                    <h2>SAVE YOUR SPOT</h2>
+                    <p>A unique event filled with networking, workshops, seminars, and engaging conversations with the industry's leading experts.</p>
+                    <button class="save-spot-btn">BOOK NOW</button>
+                </div>
+                <div class="save-spot-image">
+                    <div class="save-spot-decoration">
+                        <span class="decoration-icon">🎯</span>
+                        <span class="decoration-icon">💡</span>
+                        <span class="decoration-icon">🤝</span>
+                        <span class="decoration-icon">🎤</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== WHY CHOOSE US SECTION ====== -->
+    <section class="why-choose-us" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">💎 Why Choose Us</span>
+                <h2>Why Choose Party Dost?</h2>
+                <p>We bring your vision to life with creativity, precision, and passion</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🎨</div>
+                    <h3>CREATIVE CONCEPTS & ELEGANT DECOR</h3>
+                    <p>Refining spaces with artful grace. Pure art, timeless elegance.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📋</div>
+                    <h3>END TO END PLANNING & EXECUTION</h3>
+                    <p>Concept to completion, perfected. We plan, we build, you enjoy.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>BUDGET FRIENDLY PACKAGES</h3>
+                    <p>Luxury style, modest price. High value, lower costs.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">👨‍👩‍👦</div>
+                    <h3>PROFESSIONAL TEAM, ON-TIME DELIVERY</h3>
+                    <p>Expert hands, punctual results. Proven pros, always on time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PACKAGES SECTION ====== -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎉 Our Packages</span>
+                <h2>Choose Your Perfect Event Package</h2>
+                <p>Customizable plans designed to make your celebration truly special</p>
+            </div>
+
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-badge">Popular</div>
+                    <div class="package-icon">🥈</div>
+                    <h3>Silver Package</h3>
+                    <div class="package-price">₹15,000</div>
+                    <ul class="package-features">
+                        <li>✓ Event Planning</li>
+                        <li>✓ Basic Decorations</li>
+                        <li>✓ Photography (2 hrs)</li>
+                        <li>✓ Catering (50 guests)</li>
+                        <li>✓ Invitation Cards</li>
+                    </ul>
+                    <button class="package-btn">Book Now</button>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-badge">Best Seller</div>
+                    <div class="package-icon">🥇</div>
+                    <h3>Gold Package</h3>
+                    <div class="package-price">₹35,000</div>
+                    <ul class="package-features">
+                        <li>✓ Complete Planning</li>
+                        <li>✓ Premium Decorations</li>
+                        <li>✓ Photography (4 hrs)</li>
+                        <li>✓ Videography</li>
+                        <li>✓ Catering (100 guests)</li>
+                        <li>✓ DJ & Music</li>
+                        <li>✓ Custom Invitations</li>
+                    </ul>
+                    <button class="package-btn">Book Now</button>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-badge">Luxury</div>
+                    <div class="package-icon">💎</div>
+                    <h3>Platinum Package</h3>
+                    <div class="package-price">₹65,000</div>
+                    <ul class="package-features">
+                        <li>✓ Full Event Management</li>
+                        <li>✓ Luxury Decorations</li>
+                        <li>✓ Photography (8 hrs)</li>
+                        <li>✓ Videography + Drone</li>
+                        <li>✓ Catering (200 guests)</li>
+                        <li>✓ Live Band/DJ</li>
+                        <li>✓ Custom Invitations</li>
+                        <li>✓ Return Gifts</li>
+                        <li>✓ Event Coordinator</li>
+                    </ul>
+                    <button class="package-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== GALLERY SECTION ====== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📸 Our Work</span>
+                <h2>Event Gallery</h2>
+                <p>Browse through our memorable events and celebrations</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400" alt="Birthday Party">
+                    <div class="gallery-overlay">
+                        <h4>Birthday Celebration</h4>
+                        <p>Amazing themed party</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400" alt="Wedding">
+                    <div class="gallery-overlay">
+                        <h4>Royal Wedding</h4>
+                        <p>Elegant decor & planning</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" alt="Wedding">
+                    <div class="gallery-overlay">
+                        <h4>Traditional Wedding</h4>
+                        <p>Beautiful ceremonies</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?w=400" alt="Corporate Event">
+                    <div class="gallery-overlay">
+                        <h4>Corporate Event</h4>
+                        <p>Professional setup</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400" alt="Baby Shower">
+                    <div class="gallery-overlay">
+                        <h4>Baby Shower</h4>
+                        <p>Celebrating new life</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400" alt="Party">
+                    <div class="gallery-overlay">
+                        <h4>Annaprasan</h4>
+                        <p>Traditional ceremony</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TEAM SECTION ====== -->
+    <section class="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">👥 Our Team</span>
+                <h2>Meet Our Experts</h2>
+                <p>Passionate professionals dedicated to making your event perfect</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👩‍💼</div>
+                    <h4>Amit Adhikari</h4>
+                    <p>Event Director</p>
+                    <span class="team-badge">20+ Years</span>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">👨‍🎨</div>
+                    <h4>Pravin Agarwal</h4>
+                    <p>Creative Head</p>
+                    <span class="team-badge">25+ Years</span>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">👩‍🎨</div>
+                    <h4>Pravat Agarwal</h4>
+                    <p>Lead Decorator</p>
+                    <span class="team-badge">20+ Years</span>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">🧑‍💻</div>
+                    <h4>Samarjit Singh</h4>
+                    <p>Event Coordinator</p>
+                    <span class="team-badge">7+ Years</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS SECTION ====== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">⭐ Client Reviews</span>
+                <h2>What Our Clients Say</h2>
+                <p>Real stories from real people who trusted us with their special moments</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Party Dost made our wedding absolutely magical! The decorations were stunning and the team was so professional. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <h4>Priya & Rahul</h4>
+                        <span>Wedding Celebration</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Our daughter's first birthday was perfect! The themed decorations and planning were beyond our expectations. Thank you Party Dost!"</p>
+                    <div class="testimonial-author">
+                        <h4>Sharma Family</h4>
+                        <span>Birthday Party</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The Annaprasan ceremony was beautifully organized. Everything was traditional yet elegant. The team took care of every detail."</p>
+                    <div class="testimonial-author">
+                        <h4>Patel Family</h4>
+                        <span>Annaprasan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT SECTION ====== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📞 Get In Touch</span>
+                <h2>Let's Plan Your Event</h2>
+                <p>Contact us today and let's create something memorable together</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Location</h4>
+                            <p>22, Gangadhar Babu Lane, Kolkata, India</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 914776 8492</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@peritusideas.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 10:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Phone Number">
+                        <select required>
+                            <option value="">Select Event Type</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="annaprasan">Annaprasan</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea rows="4" placeholder="Tell us about your event..." required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PARTY DOST</h3>
+                    <p>Making every celebration memorable with our expert event planning and decoration services.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📸</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📺</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#themes">Themes</a>
+                    <a href="#gallery">Gallery</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#">Birthday</a>
+                    <a href="#">Wedding</a>
+                    <a href="#">Annaprasan</a>
+                    <a href="#">Corporate</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ info@partydost.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Party Dost. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
