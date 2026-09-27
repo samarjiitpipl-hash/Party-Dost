@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const packages = [
   {
@@ -82,6 +83,113 @@ const colorMap = {
   purple: { border: 'border-purple-600', badge: 'bg-purple-600', priceText: 'text-purple-700', btn: 'bg-purple-600 hover:bg-purple-700' },
 };
 
+function PackageCard({ pkg }) {
+  const [open, setOpen] = useState(false);
+  const colors = colorMap[pkg.color];
+
+  return (
+    <div
+      className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 ${colors.border} overflow-hidden flex flex-col`}
+    >
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={pkg.image}
+          alt={pkg.name}
+          className="w-full h-full object-cover hover:scale-105 transition duration-500"
+        />
+        <div className="absolute top-4 left-4">
+          <span className={`${colors.badge} text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}>
+            {pkg.tagline}
+          </span>
+        </div>
+      </div>
+
+      <div className="p-6 flex-1 flex flex-col">
+        <h3 className="text-2xl font-bold text-purple-900 mb-1 font-display">{pkg.name}</h3>
+        <p className={`text-3xl font-bold ${colors.priceText} mb-4`}>
+          {pkg.price}<span className="text-base font-normal text-gray-500">/-</span>
+        </p>
+        <p className="text-sm text-gray-600 mb-4">{pkg.description}</p>
+
+        {/* Toggle button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg ${colors.badge} text-white font-semibold text-sm transition hover:opacity-90 mb-4`}
+        >
+          <span>{open ? 'Hide Details' : "What's Included"}</span>
+          <span className="text-lg">{open ? '−' : '+'}</span>
+        </button>
+
+        {open && (
+          <div className="animate-fadeIn">
+            <ul className="space-y-1.5 mb-4">
+              {pkg.included.map((inc, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                  <span className="text-amber-500 mt-0.5">✓</span>
+                  <span>{inc}</span>
+                </li>
+              ))}
+            </ul>
+
+            {pkg.fun && (
+              <>
+                <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Fun & Entertainment:</h4>
+                <ul className="space-y-1.5 mb-4">
+                  {pkg.fun.map((f, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-amber-500 mt-0.5">🎉</span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {pkg.entertainment && (
+              <>
+                <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Entertainment (any two):</h4>
+                <ul className="space-y-1.5 mb-4">
+                  {pkg.entertainment.map((e, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-amber-500 mt-0.5">⭐</span>
+                      <span>{e}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {pkg.games && (
+              <>
+                <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Games & Grand Entry:</h4>
+                <ul className="space-y-1.5 mb-4">
+                  {pkg.games.map((g, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-amber-500 mt-0.5">🎯</span>
+                      <span>{g}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            <p className="text-xs italic text-gray-500 mt-4 border-t pt-4">{pkg.ideal}</p>
+          </div>
+        )}
+      </div>
+
+      <div className="p-6 pt-0">
+        <Link
+          to="/contact"
+          className={`block text-center ${colors.btn} text-white py-3 rounded-full font-semibold transition shadow-md`}
+        >
+          Book This Package
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function Birthday() {
   return (
     <>
@@ -107,103 +215,13 @@ export default function Birthday() {
             Our Birthday Packages
           </h2>
           <p className="text-center text-gray-600 mb-14 max-w-2xl mx-auto">
-            Pick the perfect plan for your celebration. All packages are customizable.
+            Pick the perfect plan for your celebration. Click "What's Included" to see full details.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {packages.map((pkg) => {
-              const colors = colorMap[pkg.color];
-              return (
-                <div
-                  key={pkg.name}
-                  className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 ${colors.border} overflow-hidden flex flex-col`}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.name}
-                      className="w-full h-full object-cover hover:scale-105 transition duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className={`${colors.badge} text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}>
-                        {pkg.tagline}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold text-purple-900 mb-1 font-display">{pkg.name}</h3>
-                    <p className={`text-3xl font-bold ${colors.priceText} mb-4`}>
-                      {pkg.price}<span className="text-base font-normal text-gray-500">/-</span>
-                    </p>
-                    <p className="text-sm text-gray-600 mb-4">{pkg.description}</p>
-
-                    <h4 className="font-semibold text-purple-900 mb-2 text-sm">What's Included:</h4>
-                    <ul className="space-y-1.5 mb-4">
-                      {pkg.included.map((inc, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                          <span className="text-amber-500 mt-0.5">✓</span>
-                          <span>{inc}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {pkg.fun && (
-                      <>
-                        <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Fun & Entertainment:</h4>
-                        <ul className="space-y-1.5 mb-4">
-                          {pkg.fun.map((f, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                              <span className="text-amber-500 mt-0.5">🎉</span>
-                              <span>{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                    {pkg.entertainment && (
-                      <>
-                        <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Entertainment (any two):</h4>
-                        <ul className="space-y-1.5 mb-4">
-                          {pkg.entertainment.map((e, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                              <span className="text-amber-500 mt-0.5">⭐</span>
-                              <span>{e}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                    {pkg.games && (
-                      <>
-                        <h4 className="font-semibold text-purple-900 mb-2 text-sm mt-4">Games & Grand Entry:</h4>
-                        <ul className="space-y-1.5 mb-4">
-                          {pkg.games.map((g, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                              <span className="text-amber-500 mt-0.5">🎯</span>
-                              <span>{g}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                    <p className="text-xs italic text-gray-500 mt-4 border-t pt-4 flex-1">{pkg.ideal}</p>
-                  </div>
-
-                  <div className="p-6 pt-0">
-                    <Link
-                      to="/contact"
-                      className={`block text-center ${colors.btn} text-white py-3 rounded-full font-semibold transition shadow-md`}
-                    >
-                      Book This Package
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+            {packages.map((pkg) => (
+              <PackageCard key={pkg.name} pkg={pkg} />
+            ))}
           </div>
 
           <p className="text-center text-sm text-gray-500 mt-10">
