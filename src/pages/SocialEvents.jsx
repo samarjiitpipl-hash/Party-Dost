@@ -58,8 +58,7 @@ const packages = [
     name: 'Premium Package',
     price: '₹24,999',
     tagline: 'Grand & Unforgettable',
-    image: 'https://images.unsplash.com/photo-1533294168868-3a2b64c90e9e?auto=format&fit=crop&w=800&q=80',
-    description: 'A complete premium décor and entertainment experience with luxury styling, personalized elements, and engaging performances.',
+image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80',    description: 'A complete premium décor and entertainment experience with luxury styling, personalized elements, and engaging performances.',
     included: [
       'Premium theme-based decoration setup',
       'Luxury backdrop for cake cutting & photos',
