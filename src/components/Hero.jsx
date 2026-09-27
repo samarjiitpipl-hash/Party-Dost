@@ -7,9 +7,9 @@ export default function Hero() {
       <div className="relative max-w-4xl text-center">
         <p className="text-amber-400 tracking-[0.3em] text-sm mb-4">EVENTS • EXPERIENCES • CELEBRATIONS</p>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 font-display">Party Dost</h1>
-        <p <p className="text-xl md:text-2xl mb-4 text-purple-100">
-  Changing Moments into Memories
-</p>
+        <p className="text-xl md:text-2xl mb-4 text-purple-100">
+          Your Trusted Partner for Events, Experiences & Celebrations
+        </p>
         <p className="text-base md:text-lg mb-10 text-purple-200 max-w-2xl mx-auto">
           From concept development and planning to execution and on-ground management —
           we bring creativity, technology, entertainment and professional expertise under one roof.
