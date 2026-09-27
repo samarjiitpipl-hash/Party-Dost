@@ -1,16 +1,5 @@
 import { Link } from 'react-router-dom';
 
-const items = [
-  'Birthday Celebrations',
-  'Anniversary Events',
-  'Weddings & Receptions',
-  'Haldi & Sangeet',
-  'Engagement Ceremonies',
-  'Baby Showers',
-  'Private Parties',
-  'Family Celebrations',
-];
-
 const packages = [
   {
     name: 'Basic Package',
@@ -58,7 +47,8 @@ const packages = [
     name: 'Premium Package',
     price: '₹24,999',
     tagline: 'Grand & Unforgettable',
-image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80',    description: 'A complete premium décor and entertainment experience with luxury styling, personalized elements, and engaging performances.',
+    image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80',
+    description: 'A complete premium décor and entertainment experience with luxury styling, personalized elements, and engaging performances.',
     included: [
       'Premium theme-based decoration setup',
       'Luxury backdrop for cake cutting & photos',
@@ -92,73 +82,32 @@ const colorMap = {
   purple: { border: 'border-purple-600', badge: 'bg-purple-600', priceText: 'text-purple-700', btn: 'bg-purple-600 hover:bg-purple-700' },
 };
 
-export default function SocialEvents() {
+export default function Birthday() {
   return (
     <>
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80"
-          alt="Wedding Celebration"
+          src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=1920&q=80"
+          alt="Birthday Celebration"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/90 via-pink-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/90 via-pink-900/70 to-transparent" />
         <div className="relative max-w-5xl px-6 text-center">
-          <p className="text-amber-400 tracking-[0.3em] text-sm mb-4">SERVICES</p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 font-display">Social & Private Events</h1>
+          <p className="text-amber-400 tracking-[0.3em] text-sm mb-4">PACKAGES</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 font-display">Birthday Celebrations</h1>
           <p className="text-lg md:text-xl text-pink-100 max-w-2xl mx-auto">
-            We transform special occasions into beautifully planned celebrations with customized themes and entertainment.
+            Choose the perfect package for your special day — from intimate home celebrations to grand themed parties.
           </p>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-orange-50">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-4 font-display">
-            What We Deliver
-          </h2>
-          <p className="text-center text-gray-600 mb-14 max-w-2xl mx-auto">
-            Every celebration is crafted around your story, style and budget.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {{items.map((item) => {
-  const isBirthday = item === 'Birthday Celebrations';
-  const cardContent = (
-    <>
-      <div className="text-2xl mb-2">🎊</div>
-      <h3 className="font-semibold text-purple-900">{item}</h3>
-      {isBirthday && (
-        <p className="text-xs text-pink-600 mt-2 font-medium">Click to view packages →</p>
-      )}
-    </>
-  );
-  return isBirthday ? (
-    <Link
-      key={item}
-      to="/services/birthday"
-      className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition border-l-4 border-pink-500 block cursor-pointer"
-    >
-      {cardContent}
-    </Link>
-  ) : (
-    <div
-      key={item}
-      className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition border-l-4 border-pink-500"
-    >
-      {cardContent}
-    </div>
-  );
-})}
-          </div>
         </div>
       </section>
 
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-4 font-display">
-            Birthday Celebration Packages
+            Our Birthday Packages
           </h2>
           <p className="text-center text-gray-600 mb-14 max-w-2xl mx-auto">
-            Choose the perfect package for your special day — from intimate home celebrations to grand themed parties.
+            Pick the perfect plan for your celebration. All packages are customizable.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -264,12 +213,12 @@ export default function SocialEvents() {
       </section>
 
       <section className="py-16 bg-pink-700 text-white text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">Let's Celebrate Your Moment</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">Ready to Book?</h2>
         <p className="text-pink-100 mb-8 max-w-xl mx-auto">
-          From intimate gatherings to grand weddings — we make every occasion unforgettable.
+          Contact us and we'll plan the perfect birthday celebration for you.
         </p>
         <Link to="/contact" className="inline-block bg-amber-500 text-purple-900 px-8 py-3 rounded-full font-semibold hover:bg-amber-400 transition shadow-lg">
-          Plan My Celebration
+          Get in Touch
         </Link>
       </section>
     </>
