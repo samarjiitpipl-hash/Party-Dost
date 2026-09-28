@@ -11,6 +11,9 @@ import Production from './pages/Production';
 import Entertainment from './pages/Entertainment';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import BirthdayKolkata from './pages/BirthdayKolkata';
+import CorporateKolkata from './pages/CorporateKolkata';
+import WeddingKolkata from './pages/WeddingKolkata';
 
 export default function App() {
   return (
@@ -28,6 +31,9 @@ export default function App() {
           <Route path="/services/entertainment" element={<Entertainment />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/birthday-party-organizer-kolkata" element={<BirthdayKolkata />} />
+          <Route path="/corporate-event-management-kolkata" element={<CorporateKolkata />} />
+          <Route path="/wedding-decorators-kolkata" element={<WeddingKolkata />} />
         </Routes>
       </main>
       <Footer />
