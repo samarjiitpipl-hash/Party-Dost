@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
   'Conferences & Seminars',
@@ -21,6 +22,12 @@ const faqs = [
 export default function CorporateKolkata() {
   return (
     <>
+      <Helmet>
+        <title>Corporate Event Management in Kolkata | Party Dost</title>
+        <meta name="description" content="Professional corporate event management in Kolkata. Conferences, product launches, award nights & brand activations. Full production & on-ground coordination. Call +91-9147768492." />
+        <meta name="keywords" content="corporate event management kolkata, corporate event planner kolkata, conference organizer kolkata, product launch kolkata" />
+      </Helmet>
+
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-white overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=80"

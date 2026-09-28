@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const serviceAreas = ['Kolkata', 'Howrah', 'Salt Lake', 'New Town'];
 
@@ -12,6 +13,12 @@ const faqs = [
 export default function BirthdayKolkata() {
   return (
     <>
+      <Helmet>
+        <title>Birthday Party Organizer in Kolkata | Party Dost</title>
+        <meta name="description" content="Looking for a birthday party organizer in Kolkata? Party Dost offers custom décor, entertainment & photography. Packages from ₹11,999. Call +91-9147768492." />
+        <meta name="keywords" content="birthday party organizer kolkata, birthday decorator kolkata, birthday party planner kolkata, kids birthday party kolkata" />
+      </Helmet>
+
       {/* HERO */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-white overflow-hidden">
         <img

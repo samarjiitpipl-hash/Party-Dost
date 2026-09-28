@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
   'Wedding Planning & Coordination',
@@ -21,6 +22,12 @@ const faqs = [
 export default function WeddingKolkata() {
   return (
     <>
+      <Helmet>
+        <title>Wedding Decorators in Kolkata | Party Dost</title>
+        <meta name="description" content="Wedding decorators in Kolkata for weddings, receptions, haldi & sangeet. Custom themes, floral décor, mandap design & complete coordination. Call +91-9147768492." />
+        <meta name="keywords" content="wedding decorators kolkata, wedding planner kolkata, wedding decor kolkata, mandap decorator kolkata" />
+      </Helmet>
+
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-white overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80"
