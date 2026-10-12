@@ -35,6 +35,7 @@ const packages = [
       'Welcome tripod standee',
       'Entry gate elegant balloon decoration',
       'Party poppers (2 pcs)',
+      'Photography & Videography',
     ],
     fun: [
       'Games: Hit the Wicket, Break the Pyramid, Shoot the Balloons',
@@ -58,6 +59,7 @@ const packages = [
       'Personalized name board / custom signage',
       'Photography-ready setups',
       'Dedicated on-site coordination',
+      'Photography & Videography',
     ],
     entertainment: [
       'Magic Show',
@@ -111,7 +113,6 @@ function PackageCard({ pkg }) {
         </p>
         <p className="text-sm text-gray-600 mb-4">{pkg.description}</p>
 
-        {/* Toggle button */}
         <button
           onClick={() => setOpen(!open)}
           className={`w-full flex items-center justify-between px-4 py-3 rounded-lg ${colors.badge} text-white font-semibold text-sm transition hover:opacity-90 mb-4`}
