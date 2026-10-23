@@ -97,7 +97,7 @@ function SocialCard({ item }) {
 
   if (item.isEngagement) {
     return (
-      <Link to="/services/engagement" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+      <Link to="/services/engagement-ceremony" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
         <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
         <div className="p-6 flex-1 flex flex-col">
           <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
