@@ -73,7 +73,7 @@ function SocialCard({ item }) {
     );
   }
 
-  // 3. Wedding Card Link (THIS WAS MISSING!)
+  // 3. Wedding Card Link
   if (item.isWedding) {
     return (
       <Link to="/services/wedding" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
