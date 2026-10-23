@@ -1,14 +1,38 @@
 import { Link } from 'react-router-dom';
 
 const items = [
-  'Conferences & Seminars',
-  'Annual Meetings',
-  'Dealer & Distributor Meets',
-  'Award Ceremonies',
-  'Product Launches',
-  'Corporate Parties',
-  'Employee Engagement Activities',
-  'Brand Activations',
+  { 
+    name: 'Conferences & Seminars', 
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Annual Meetings', 
+    image: 'https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Dealer & Distributor Meets', 
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Award Ceremonies', 
+    image: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Product Launches', 
+    image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Corporate Parties', 
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Employee Engagement Activities', 
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80' 
+  },
+  { 
+    name: 'Brand Activations', 
+    image: 'https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&w=600&q=80' 
+  },
 ];
 
 export default function CorporateEvents() {
@@ -40,9 +64,15 @@ export default function CorporateEvents() {
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {items.map((item) => (
-              <div key={item} className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition border-l-4 border-amber-500">
-                <div className="text-2xl mb-2">🏢</div>
-                <h3 className="font-semibold text-purple-900">{item}</h3>
+              <div key={item.name} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-amber-500 flex flex-col">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-6 flex-1 flex items-center justify-center text-center">
+                  <h3 className="font-semibold text-purple-900">{item.name}</h3>
+                </div>
               </div>
             ))}
           </div>
