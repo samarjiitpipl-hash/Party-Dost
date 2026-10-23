@@ -10,6 +10,7 @@ import Birthday from './pages/Birthday';
 import Anniversary from './pages/Anniversary';
 import Wedding from './pages/Wedding';
 import HaldiSangeet from './pages/HaldiSangeet';
+import Engagement from './pages/Engagement';
 import Production from './pages/Production';
 import Entertainment from './pages/Entertainment';
 import About from './pages/About';
@@ -33,6 +34,10 @@ export default function App() {
           <Route path="/services/anniversary" element={<Anniversary />} />
           <Route path="/services/wedding" element={<Wedding />} />
           <Route path="/services/haldi-sangeet" element={<HaldiSangeet />} />
+          
+          {/* THIS IS THE LINE THAT WAS MISSING */}
+          <Route path="/services/engagement-ceremony" element={<Engagement />} />
+          
           <Route path="/services/production" element={<Production />} />
           <Route path="/services/entertainment" element={<Entertainment />} />
           <Route path="/about" element={<About />} />
