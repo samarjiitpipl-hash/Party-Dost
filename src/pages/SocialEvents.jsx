@@ -25,7 +25,7 @@ const items = [
   { 
     name: 'Engagement Ceremonies', 
     image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80',
-    details: 'Elegant ring ceremony setups with romantic floral backdrops, customized stage designs, seating arrangements, and photography to capture the perfect moment.'
+    isEngagement: true
   },
   { 
     name: 'Baby Showers', 
@@ -83,10 +83,21 @@ function SocialCard({ item }) {
     );
   }
 
-  // THIS IS THE NEW HALDI LINK
   if (item.isHaldi) {
     return (
       <Link to="/services/haldi-sangeet" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  if (item.isEngagement) {
+    return (
+      <Link to="/services/engagement" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
         <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
         <div className="p-6 flex-1 flex flex-col">
           <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
