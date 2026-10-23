@@ -1,15 +1,89 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const items = [
-  'Birthday Celebrations',
-  'Anniversary Events',
-  'Weddings & Receptions',
-  'Haldi & Sangeet',
-  'Engagement Ceremonies',
-  'Baby Showers',
-  'Private Parties',
-  'Family Celebrations',
+  { 
+    name: 'Birthday Celebrations', 
+    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80',
+    details: 'Custom themed birthday celebrations with balloon décor, backdrop design, LED signage, cake table styling, photography, entertainment and complete on-ground coordination.',
+    isBirthday: true
+  },
+  { 
+    name: 'Anniversary Events', 
+    image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80',
+    details: 'Romantic anniversary setups including candlelight dinners, floral décor, customized backdrops, and memorable photography to celebrate your special milestone.'
+  },
+  { 
+    name: 'Weddings & Receptions', 
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
+    details: 'Complete wedding planning and coordination — mandap design, floral arrangements, stage backdrops, lighting, and flawless execution for your big day.'
+  },
+  { 
+    name: 'Haldi & Sangeet', 
+    image: 'https://images.unsplash.com/photo-1583082107085-56c2c663a2b5?auto=format&fit=crop&w=600&q=80',
+    details: 'Vibrant Haldi and Sangeet setups with marigold floral décor, traditional props, dance floors, DJs, and engaging entertainment to kickstart the wedding festivities.'
+  },
+  { 
+    name: 'Engagement Ceremonies', 
+    image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80',
+    details: 'Elegant ring ceremony setups with romantic floral backdrops, customized stage designs, seating arrangements, and photography to capture the perfect moment.'
+  },
+  { 
+    name: 'Baby Showers', 
+    image: 'https://images.unsplash.com/photo-1558152449-1e0c9e28f6de?auto=format&fit=crop&w=600&q=80',
+    details: 'Beautiful baby shower décor with pastel themes, balloon arches, dessert tables, comfortable seating, and customized photo zones for the mom-to-be.'
+  },
+  { 
+    name: 'Private Parties', 
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+    details: 'Exclusive private party styling including customized themes, entry gates, lighting, DJs, catering coordination, and complete event management for a hassle-free celebration.'
+  },
+  { 
+    name: 'Family Celebrations', 
+    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
+    details: 'Intimate family gatherings, reunions, or milestone celebrations with complete décor, food coordination, and entertainment tailored for all generations.'
+  },
 ];
+
+function SocialCard({ item }) {
+  const [open, setOpen] = useState(false);
+
+  // If it's the birthday card, keep it as a Link to the packages page
+  if (item.isBirthday) {
+    return (
+      <Link to="/services/birthday" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  // For other cards, make them expandable
+  return (
+    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition border-b-4 border-pink-500 flex flex-col">
+      <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+      <div className="p-6 flex-1 flex flex-col">
+        <h3 className="font-bold text-purple-900 text-center mb-4 h-12 flex items-center justify-center">{item.name}</h3>
+        
+        <button 
+          onClick={() => setOpen(!open)}
+          className="text-sm text-pink-600 font-semibold hover:text-pink-700 mt-auto underline decoration-pink-300 underline-offset-4"
+        >
+          {open ? 'Show Less' : 'Read Details'}
+        </button>
+        
+        {open && (
+          <p className="text-sm text-gray-600 mt-3 pt-3 border-t border-gray-100 animate-fadeIn">
+            {item.details}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function SocialEvents() {
   return (
@@ -36,37 +110,12 @@ export default function SocialEvents() {
             What We Deliver
           </h2>
           <p className="text-center text-gray-600 mb-14 max-w-2xl mx-auto">
-            Every celebration is crafted around your story, style and budget.
+            Every celebration is crafted around your story, style and budget. Click on any card to read more.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {items.map((item) => {
-              const isBirthday = item === 'Birthday Celebrations';
-              const cardContent = (
-                <>
-                  <div className="text-2xl mb-2">🎊</div>
-                  <h3 className="font-semibold text-purple-900">{item}</h3>
-                  {isBirthday && (
-                    <p className="text-xs text-pink-600 mt-2 font-medium">Click to view packages →</p>
-                  )}
-                </>
-              );
-              return isBirthday ? (
-                <Link
-                  key={item}
-                  to="/services/birthday"
-                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition border-l-4 border-pink-500 block cursor-pointer"
-                >
-                  {cardContent}
-                </Link>
-              ) : (
-                <div
-                  key={item}
-                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition border-l-4 border-pink-500"
-                >
-                  {cardContent}
-                </div>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+            {items.map((item) => (
+              <SocialCard key={item.name} item={item} />
+            ))}
           </div>
         </div>
       </section>
