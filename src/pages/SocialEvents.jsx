@@ -15,7 +15,7 @@ const items = [
   { 
     name: 'Weddings & Receptions', 
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
-    details: 'Complete wedding planning and coordination — mandap design, floral arrangements, stage backdrops, lighting, and flawless execution for your big day.'
+    isWedding: true
   },
   { 
     name: 'Haldi & Sangeet', 
@@ -47,7 +47,7 @@ const items = [
 function SocialCard({ item }) {
   const [open, setOpen] = useState(false);
 
-  // If it's the birthday card
+  // 1. Birthday Card Link
   if (item.isBirthday) {
     return (
       <Link to="/services/birthday" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
@@ -60,7 +60,7 @@ function SocialCard({ item }) {
     );
   }
 
-  // If it's the anniversary card
+  // 2. Anniversary Card Link
   if (item.isAnniversary) {
     return (
       <Link to="/services/anniversary" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
@@ -73,7 +73,20 @@ function SocialCard({ item }) {
     );
   }
 
-  // For all other cards
+  // 3. Wedding Card Link (THIS WAS MISSING!)
+  if (item.isWedding) {
+    return (
+      <Link to="/services/wedding" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  // 4. All other normal cards (Haldi, Baby Shower, etc.)
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition border-b-4 border-pink-500 flex flex-col">
       <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
