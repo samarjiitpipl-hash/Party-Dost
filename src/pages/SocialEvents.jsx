@@ -5,13 +5,12 @@ const items = [
   { 
     name: 'Birthday Celebrations', 
     image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80',
-    details: 'Custom themed birthday celebrations with balloon décor, backdrop design, LED signage, cake table styling, photography, entertainment and complete on-ground coordination.',
     isBirthday: true
   },
   { 
     name: 'Anniversary Events', 
     image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80',
-    details: 'Romantic anniversary setups including candlelight dinners, floral décor, customized backdrops, and memorable photography to celebrate your special milestone.'
+    isAnniversary: true
   },
   { 
     name: 'Weddings & Receptions', 
@@ -20,7 +19,7 @@ const items = [
   },
   { 
     name: 'Haldi & Sangeet', 
-    image: 'https://images.unsplash.com/photo-1583082107085-56c2c663a2b5?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80',
     details: 'Vibrant Haldi and Sangeet setups with marigold floral décor, traditional props, dance floors, DJs, and engaging entertainment to kickstart the wedding festivities.'
   },
   { 
@@ -30,7 +29,7 @@ const items = [
   },
   { 
     name: 'Baby Showers', 
-    image: 'https://images.unsplash.com/photo-1558152449-1e0c9e28f6de?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80',
     details: 'Beautiful baby shower décor with pastel themes, balloon arches, dessert tables, comfortable seating, and customized photo zones for the mom-to-be.'
   },
   { 
@@ -48,7 +47,7 @@ const items = [
 function SocialCard({ item }) {
   const [open, setOpen] = useState(false);
 
-  // If it's the birthday card, keep it as a Link to the packages page
+  // If it's the birthday card
   if (item.isBirthday) {
     return (
       <Link to="/services/birthday" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
@@ -61,7 +60,20 @@ function SocialCard({ item }) {
     );
   }
 
-  // For other cards, make them expandable
+  // If it's the anniversary card
+  if (item.isAnniversary) {
+    return (
+      <Link to="/services/anniversary" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  // For all other cards
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition border-b-4 border-pink-500 flex flex-col">
       <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />

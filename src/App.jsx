@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import CorporateEvents from './pages/CorporateEvents';
 import SocialEvents from './pages/SocialEvents';
 import Birthday from './pages/Birthday';
+import Anniversary from './pages/Anniversary';
 import Production from './pages/Production';
 import Entertainment from './pages/Entertainment';
 import About from './pages/About';
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/services/corporate" element={<CorporateEvents />} />
           <Route path="/services/social" element={<SocialEvents />} />
           <Route path="/services/birthday" element={<Birthday />} />
+          <Route path="/services/anniversary" element={<Anniversary />} />
           <Route path="/services/production" element={<Production />} />
           <Route path="/services/entertainment" element={<Entertainment />} />
           <Route path="/about" element={<About />} />
