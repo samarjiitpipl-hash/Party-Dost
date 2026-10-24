@@ -30,7 +30,7 @@ const items = [
   { 
     name: 'Baby Showers', 
     image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80',
-    details: 'Beautiful baby shower décor with pastel themes, balloon arches, dessert tables, comfortable seating, and customized photo zones for the mom-to-be.'
+    isBabyShower: true
   },
   { 
     name: 'Private Parties', 
@@ -98,6 +98,18 @@ function SocialCard({ item }) {
   if (item.isEngagement) {
     return (
       <Link to="/services/engagement-ceremony" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  if (item.isBabyShower) {
+    return (
+      <Link to="/services/baby-shower" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
         <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
         <div className="p-6 flex-1 flex flex-col">
           <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
