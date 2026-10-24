@@ -29,7 +29,7 @@ const items = [
   },
   { 
     name: 'Baby Showers', 
-    image: 'https://images.unsplash.com/photo-1558152449-1e0c9e28f6de?auto=format&fit=crop&w=600&q=80',
+   image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80',
     details: 'Beautiful baby shower décor with pastel themes, balloon arches, dessert tables, comfortable seating, and customized photo zones for the mom-to-be.'
   },
   { 
