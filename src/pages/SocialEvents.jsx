@@ -29,12 +29,12 @@ const items = [
   },
   { 
     name: 'Baby Showers', 
-    image: '/Party-Dost/Photos/baby-shower.jpg',
+    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80',
     details: 'Beautiful baby shower décor with pastel themes, balloon arches, dessert tables, comfortable seating, and customized photo zones for the mom-to-be.'
   },
   { 
     name: 'Private Parties', 
-    image: '/Party-Dost/Photos/private-parties.jpg',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
     details: 'Exclusive private party styling including customized themes, entry gates, lighting, DJs, catering coordination, and complete event management for a hassle-free celebration.'
   },
   { 
