@@ -34,7 +34,7 @@ const items = [
   },
   { 
     name: 'Private Parties', 
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+       image: '/Party-Dost/images/private-parties.jpg',
     details: 'Exclusive private party styling including customized themes, entry gates, lighting, DJs, catering coordination, and complete event management for a hassle-free celebration.'
   },
   { 
