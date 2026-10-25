@@ -19,7 +19,7 @@ const items = [
   },
   { 
     name: 'Haldi & Sangeet', 
-      image: '/Party-Dost/images/haldi-sangeet.jpg',
+    image: '/Party-Dost/images/haldi-sangeet.jpg',
     isHaldi: true
   },
   { 
