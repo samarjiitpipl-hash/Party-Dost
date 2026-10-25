@@ -33,7 +33,6 @@ const items = [
     isBabyShower: true
   },
   { 
-      { 
     name: 'Private Parties', 
     image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
     details: 'Exclusive private party styling including customized themes, entry gates, lighting, DJs, catering coordination, and complete event management for a hassle-free celebration.'
