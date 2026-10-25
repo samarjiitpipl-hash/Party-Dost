@@ -19,7 +19,7 @@ const items = [
   },
   { 
     name: 'Haldi & Sangeet', 
-    image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=600&q=80',
+    image: '/Party-Dost/images/haldi-sangeet.jpg',
     isHaldi: true
   },
   { 
