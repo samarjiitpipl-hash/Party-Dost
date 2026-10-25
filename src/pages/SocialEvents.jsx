@@ -17,9 +17,9 @@ const items = [
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
     isWedding: true
   },
-  { 
+ { 
     name: 'Haldi & Sangeet', 
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80', 
+    image: '/Party-Dost/images/haldi-sangeet.jpg', 
     isHaldi: true
   },
   {
