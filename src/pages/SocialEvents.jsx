@@ -39,7 +39,7 @@ const items = [
   },
   { 
     name: 'Family Celebrations', 
-    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
+        image: '/Party-Dost/images/family-celebration.jpg',
     details: 'Intimate family gatherings, reunions, or milestone celebrations with complete décor, food coordination, and entertainment tailored for all generations.'
   },
 ];
