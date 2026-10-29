@@ -17,12 +17,12 @@ const items = [
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
     isWedding: true
   },
- { 
+  { 
     name: 'Haldi & Sangeet', 
-    image: '/Party-Dost/images/haldi-sangeet.jpg', 
+    image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=600&q=80',
     isHaldi: true
   },
-  {
+  { 
     name: 'Engagement Ceremonies', 
     image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80',
     isEngagement: true
@@ -39,8 +39,8 @@ const items = [
   },
   { 
     name: 'Family Celebrations', 
-   image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
-    details: 'Intimate family gatherings, reunions, or milestone celebrations with complete décor, food coordination, and entertainment tailored for all generations.'
+    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
+    isFamily: true
   },
 ];
 
@@ -131,27 +131,19 @@ function SocialCard({ item }) {
     );
   }
 
-  return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition border-b-4 border-pink-500 flex flex-col">
-      <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
-      <div className="p-6 flex-1 flex flex-col">
-        <h3 className="font-bold text-purple-900 text-center mb-4 h-12 flex items-center justify-center">{item.name}</h3>
-        
-        <button 
-          onClick={() => setOpen(!open)}
-          className="text-sm text-pink-600 font-semibold hover:text-pink-700 mt-auto underline decoration-pink-300 underline-offset-4"
-        >
-          {open ? 'Show Less' : 'Read Details'}
-        </button>
-        
-        {open && (
-          <p className="text-sm text-gray-600 mt-3 pt-3 border-t border-gray-100 animate-fadeIn">
-            {item.details}
-          </p>
-        )}
-      </div>
-    </div>
-  );
+  if (item.isFamily) {
+    return (
+      <Link to="/services/family-celebrations" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
+        <img src={item.image} alt={item.name} className="w-full h-40 object-cover" />
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-bold text-purple-900 text-center mb-2">{item.name}</h3>
+          <p className="text-xs text-pink-600 mt-2 font-medium text-center">Click to view packages →</p>
+        </div>
+      </Link>
+    );
+  }
+
+  return null; // Fallback
 }
 
 export default function SocialEvents() {
