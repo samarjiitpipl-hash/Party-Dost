@@ -33,9 +33,9 @@ const items = [
     isBabyShower: true
   },
   { 
-    name: 'Private Parties', 
-    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
-    isPrivateParty: true
+    name: 'Haldi & Sangeet', 
+    image: '/Party-Dost/images/private-parties.jpg', 
+    isHaldi: true
   },
   { 
     name: 'Family Celebrations', 
