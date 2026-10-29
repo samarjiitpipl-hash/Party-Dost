@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 const items = [
   { 
@@ -29,7 +28,7 @@ const items = [
   },
   { 
     name: 'Baby Showers', 
-   image: '/Party-Dost/images/baby-shower.jpg', 
+    image: '/Party-Dost/images/baby-shower.jpg', 
     isBabyShower: true
   },
   { 
@@ -45,8 +44,6 @@ const items = [
 ];
 
 function SocialCard({ item }) {
-  const [open, setOpen] = useState(false);
-
   if (item.isBirthday) {
     return (
       <Link to="/services/birthday" className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition border-b-4 border-pink-500 flex flex-col cursor-pointer">
