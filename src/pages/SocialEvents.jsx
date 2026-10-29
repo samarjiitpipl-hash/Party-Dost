@@ -19,7 +19,7 @@ const items = [
   },
   { 
     name: 'Haldi & Sangeet', 
-    image: '/Party-Dost/images/haldi-sangeet.jpg', 
+    image: '/Party-Dost/images/haldi-sangeet.jpg',
     isHaldi: true
   },
   { 
@@ -29,17 +29,17 @@ const items = [
   },
   { 
     name: 'Baby Showers', 
-    image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80',
+   image: '/Party-Dost/images/baby-shower.jpg', 
     isBabyShower: true
   },
   { 
     name: 'Private Parties', 
-    image: 'https://images.unsplash.com/private-parties.jpg',
+    image: '/Party-Dost/images/private-parties.jpg',
     isPrivateParty: true
   },
   { 
     name: 'Family Celebrations', 
-    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
+    image: '/Party-Dost/images/family-celebration.jpg',
     isFamily: true
   },
 ];
@@ -143,7 +143,7 @@ function SocialCard({ item }) {
     );
   }
 
-  return null; // Fallback
+  return null;
 }
 
 export default function SocialEvents() {
