@@ -20,6 +20,7 @@ import Contact from './pages/Contact';
 import BirthdayKolkata from './pages/BirthdayKolkata';
 import CorporateKolkata from './pages/CorporateKolkata';
 import WeddingKolkata from './pages/WeddingKolkata';
+import BabyShower from './pages/BabyShower';
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/services/engagement-ceremony" element={<Engagement />} />
           <Route path="/services/private-parties" element={<PrivateParties />} />
           <Route path="/services/family-celebrations" element={<Family />} />
+          <Route path="/services/baby-shower" element={<BabyShower />} />
           <Route path="/services/production" element={<Production />} />
           <Route path="/services/entertainment" element={<Entertainment />} />
           <Route path="/about" element={<About />} />
