@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
-
+import WhatsAppButton from './WhatsAppButton';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const linkClass = ({ isActive }) =>
@@ -34,6 +34,7 @@ export default function Navbar() {
           <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </div>
       )}
+      <WhatsAppButton />
     </nav>
   );
 }
