@@ -10,7 +10,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-purple-900/95 backdrop-blur text-white shadow-lg">
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
         <Link to="/" className="flex items-center gap-3 text-2xl font-bold text-amber-400 font-display">
-          <img src="/Party-Dost/images/party-dost-logo.jpeg" alt="Party Dost Logo" className="w-8 h-8 object-contain" />
+          <img src="/Party-Dost/images/party-dost-logo.jpg" alt="Party Dost Logo" className="w-8 h-8 object-contain" />
           Party Dost
         </Link>
         <div className="hidden md:flex gap-6 items-center text-sm font-medium">
