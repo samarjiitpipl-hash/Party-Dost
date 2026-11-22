@@ -77,12 +77,85 @@ const packages = [
     ideal: 'Entertainment acts, mascot options, game activities, and grand entry elements can be customized based on age group, venue space, safety permissions, and event preferences.',
     color: 'purple',
   },
+  {
+    name: 'Musical Theme Party',
+    price: '₹24,999',
+    originalPrice: '₹35,999',
+    tagline: 'Symphony of Fun',
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
+    description: 'A vibrant musical-themed celebration with instruments, notes, and a rockstar vibe.',
+    included: [
+      'Musical note balloon arch',
+      'Rockstar backdrop',
+      'Instrument props',
+      'Themed cake table',
+      'Photography',
+      'Music system',
+    ],
+    ideal: 'Perfect for kids and teens who love music.',
+    color: 'purple',
+  },
+  {
+    name: 'Cinderella Theme',
+    price: '₹22,000',
+    originalPrice: '₹35,000',
+    tagline: 'Royal Celebration',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+    description: 'A magical princess-themed party with a royal carriage, castle backdrop, and elegant decor.',
+    included: [
+      'Castle backdrop',
+      'Carriage prop',
+      'Princess dress-up corner',
+      'Pastel balloon decor',
+      'Themed cake table',
+      'Photography',
+    ],
+    ideal: 'Ideal for little princesses and fairy-tale lovers.',
+    color: 'pink',
+  },
+  {
+    name: 'Unicorn Theme',
+    price: '₹21,999',
+    originalPrice: '₹25,000',
+    tagline: 'Magical & Colorful',
+    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80',
+    description: 'A colorful unicorn-themed party with rainbow decor, magical vibes, and lots of sparkle.',
+    included: [
+      'Unicorn backdrop',
+      'Rainbow balloon arch',
+      'Unicorn props',
+      'Pastel and gold accents',
+      'Themed cake table',
+      'Photography',
+    ],
+    ideal: 'Great for kids who love magical creatures.',
+    color: 'rose',
+  },
+  {
+    name: 'Car Boots Theme',
+    price: '₹18,000',
+    originalPrice: '₹25,000',
+    tagline: 'Heartwarming & Unique',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    description: 'A unique car boot celebration with personalized decor, perfect for drive-by parties.',
+    included: [
+      'Car boot decoration',
+      'Balloon setup',
+      'Personalized banner',
+      'Themed props',
+      'Photography',
+      'Party essentials',
+    ],
+    ideal: 'Perfect for surprise celebrations and drive-by parties.',
+    color: 'amber',
+  },
 ];
 
 const colorMap = {
   amber: { border: 'border-amber-500', badge: 'bg-amber-500', priceText: 'text-amber-600', btn: 'bg-amber-500 hover:bg-amber-600' },
   pink: { border: 'border-pink-500', badge: 'bg-pink-500', priceText: 'text-pink-600', btn: 'bg-pink-500 hover:bg-pink-600' },
   purple: { border: 'border-purple-600', badge: 'bg-purple-600', priceText: 'text-purple-700', btn: 'bg-purple-600 hover:bg-purple-700' },
+  rose: { border: 'border-rose-500', badge: 'bg-rose-500', priceText: 'text-rose-600', btn: 'bg-rose-500 hover:bg-rose-600' },
 };
 
 function PackageCard({ pkg }) {
@@ -108,8 +181,11 @@ function PackageCard({ pkg }) {
 
       <div className="p-6 flex-1 flex flex-col">
         <h3 className="text-2xl font-bold text-purple-900 mb-1 font-display">{pkg.name}</h3>
-        <p className={`text-3xl font-bold ${colors.priceText} mb-4`}>
+        <p className={`text-3xl font-bold ${colors.priceText} mb-4 flex items-baseline gap-2`}>
           {pkg.price}<span className="text-base font-normal text-gray-500">/-</span>
+          {pkg.originalPrice && (
+            <span className="text-sm font-normal text-gray-400 line-through">{pkg.originalPrice}</span>
+          )}
         </p>
         <p className="text-sm text-gray-600 mb-4">{pkg.description}</p>
 
