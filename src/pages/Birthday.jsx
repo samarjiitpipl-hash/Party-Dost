@@ -82,7 +82,7 @@ const packages = [
     price: '₹24,999',
     originalPrice: '₹35,999',
     tagline: 'Symphony of Fun',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
+    image: '/Party-Dost/images/musical-theme.jpg',
     description: 'A vibrant musical-themed celebration with instruments, notes, and a rockstar vibe.',
     included: [
       'Musical note balloon arch',
@@ -100,7 +100,7 @@ const packages = [
     price: '₹22,000',
     originalPrice: '₹35,000',
     tagline: 'Royal Celebration',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+    image: '/Party-Dost/images/cinderella-theme.jpg',
     description: 'A magical princess-themed party with a royal carriage, castle backdrop, and elegant decor.',
     included: [
       'Castle backdrop',
@@ -118,7 +118,7 @@ const packages = [
     price: '₹21,999',
     originalPrice: '₹25,000',
     tagline: 'Magical & Colorful',
-    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80',
+    image: '/Party-Dost/images/unicorn-theme.jpg',
     description: 'A colorful unicorn-themed party with rainbow decor, magical vibes, and lots of sparkle.',
     included: [
       'Unicorn backdrop',
@@ -136,7 +136,7 @@ const packages = [
     price: '₹18,000',
     originalPrice: '₹25,000',
     tagline: 'Heartwarming & Unique',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    image: '/Party-Dost/images/car-boots.jpg',
     description: 'A unique car boot celebration with personalized decor, perfect for drive-by parties.',
     included: [
       'Car boot decoration',
